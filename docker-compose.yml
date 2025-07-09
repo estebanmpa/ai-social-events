@@ -1,0 +1,30 @@
+services:
+  server:
+    container_name: server-container
+    build:
+      dockerfile: ./Dockerfile
+    command: ["uvicorn", "apps.server.main:app", "--host", "0.0.0.0", "--port", "8080"]
+    environment:
+      - PYTHONPATH=/app/apps/server
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    depends_on:
+      - db
+    volumes:
+      - ./:/app
+
+  db:
+    image: postgres:17-alpine
+    container_name: server-auth-db
+    env_file:
+      - ./apps/server/.env
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: socialuser
+      POSTGRES_PASSWORD: p4ssw0rd!
+      POSTGRES_DB: socialdb
+    volumes:
+      - ./db-volume:/data/db
