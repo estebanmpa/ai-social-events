@@ -1,4 +1,11 @@
 # Sistema de Suscripciones a Cuentas Públicas y Listado de Eventos
+
+## Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Frontend WebApp](#frontend-webApp)
+- [Backend](#backend)
+
 ## Frontend WebApp
 ### Parte pública (/)
 - Landing page explicando:
@@ -8,20 +15,18 @@
 - Botón para login con Google.
 
 ### 🔐 Parte privada (/dashboard)
-#### ✅ Funcionalidades
-1. Buscador de cuentas públicas → agregar a favoritos
-- Usar Google Programmable Search Engine (CSE) incrustado en tu app.
-- O usar tu propia base con autocompletado (más adelante).
-
-2. Lista de cuentas favoritas del usuario.
-3. Mostrar eventos detectados:
-- Feed ordenado por fecha próxima.
-- Mostrar: título estimado, fecha, link al post, cuenta origen.
+- Buscador de cuentas públicas → agregar a favoritos
+- Lista de cuentas favoritas del usuario.
+- Mostrar eventos detectados:
+    - Feed ordenado por fecha próxima.
+    - Mostrar: título estimado, fecha, link al post, cuenta origen.
 
 ## 🔧 Backend
 ### ✅ Autenticación
 - Login con Google (OAuth).
 - Guardar en base de datos: user_id, email, name, picture.
+### Busquedas
+- Google Programmable Search Engine en conjunto con API Custom JSON para obtener resultados. Se configuró unicamente para instagram.com y se aplican distintos filtros para evitar obtener posts y reels.
 ### ✅ Scraper (ejecutado 1x por día, tipo cronjob)
 ### 🧠 Procesamiento de eventos (NLP)
 #### 🔍 Qué buscar en los captions:
