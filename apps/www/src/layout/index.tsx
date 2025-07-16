@@ -4,7 +4,7 @@ import BottomNav from "./BottomNav";
 export default function Layout() {
     return (
         <div className="min-h-screen flex flex-col p-4 items-center">
-            <main className="flex-grow">
+            <main className="flex flex-grow">
                 <Outlet />
             </main>
 
