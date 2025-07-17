@@ -13,14 +13,16 @@ def extract_thumbnail(item: dict) -> Optional[HttpUrl]:
     pagemap = item.get("pagemap", {})
     thumbnail = pagemap.get("cse_thumbnail", [{}])
     image = thumbnail[0].get("src") if thumbnail else None
-
+    
     # Optional: fallback to cse_image
     if not image:
         images = pagemap.get("cse_image", [{}])
         image = images[0].get("src") if images else None
+    
+    return image
 
 def map_google_response_to_accounts(raw: dict, liked_accounts: set[str]) -> List[Account]:
-    accounts = []
+    accounts: List[Account] = []
     for item in raw.get("items", []):
         title = item.get("title", "")
         name = extract_account_name_from_title(title)
@@ -30,6 +32,7 @@ def map_google_response_to_accounts(raw: dict, liked_accounts: set[str]) -> List
         like = name in liked_accounts
 
         accounts.append(Account(
+            id=None,
             name=name,
             title=title,
             link=link,

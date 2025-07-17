@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from src.factories.make_google_search_use_case import make_google_search_use_case
+from src.factories import make_google_search_use_case
 
 router = APIRouter()
 

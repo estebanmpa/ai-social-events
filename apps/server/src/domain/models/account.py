@@ -2,6 +2,7 @@ from pydantic import BaseModel, HttpUrl
 from typing import Optional
 
 class Account(BaseModel):
+    id: str
     name: str
     title: str
     link: HttpUrl
