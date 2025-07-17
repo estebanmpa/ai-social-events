@@ -1,4 +1,4 @@
-from src.application.use_cases.google_search_use_case import GoogleSearchUseCase
+from src.application.use_cases import GoogleSearchUseCase
 from src.infrastructure.external.google_search import GoogleSearchService, map_google_response_to_accounts
 
 
