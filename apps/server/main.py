@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.infrastructure.controllers import accounts, events, posts, favourites, search
+from src.infrastructure.controllers import accounts, events, posts, favourites
 from fastapi.middleware.cors import CORSMiddleware
 
 origins = [
@@ -8,7 +8,7 @@ origins = [
 
 app = FastAPI()
 
-app.include_router(search.router, prefix="/api/search")
+app.include_router(accounts.router, prefix="/api/accounts")
 
 app.add_middleware(
     CORSMiddleware,
