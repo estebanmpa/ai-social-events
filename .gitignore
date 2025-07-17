@@ -8,7 +8,4 @@ node_modules/
 # Environments
 env/
 
-# Byte-compiled / optimized / DLL files
-__pycache__/
-
 .tanstack/
